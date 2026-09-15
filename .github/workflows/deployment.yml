@@ -3,15 +3,15 @@ on:
   push:
     branches:
       - main
-      - develop
+      - develop m
 env:
   MONGODB_DB_NAME: gha-demo
 jobs:
   test:
     env:
       MONGODB_CLUSTER_ADDRESS: cluster0.99nz79e.mongodb.net
-      MONGODB_USERNAME: blkwarrior_db_user
-      MONGODB_PASSWORD: tEMV6gtMjKD6FE5C
+      MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME }}
+      MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD }}
       PORT: 8080
     runs-on: ubuntu-latest
     steps:
